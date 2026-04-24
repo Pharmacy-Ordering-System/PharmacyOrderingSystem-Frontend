@@ -14,6 +14,7 @@ export class UploadComponent {
 
   constructor(private service: PrescriptionService) {}
 
+ // file changes on the time
   onFileChange(event: any) {
     const file = event.target.files[0];
 
@@ -29,6 +30,7 @@ export class UploadComponent {
     this.error = '';
   }
 
+  //uploading the file
   upload() {
     if (!this.selectedFile) {
       this.error = 'Please select a prescription file';
