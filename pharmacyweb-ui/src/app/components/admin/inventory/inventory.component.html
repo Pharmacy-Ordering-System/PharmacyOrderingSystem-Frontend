@@ -10,6 +10,7 @@
         <tr>
           <th>Medicine</th>
           <th>Current Stock</th>
+          <th>Expiry Date</th> <!-- ✅ ADDED -->
           <th>New Stock</th>
           <th>Action</th>
         </tr>
@@ -18,13 +19,18 @@
       <tbody>
         <tr *ngFor="let item of inventory">
 
-          <td>{{item.medicine?.name}}</td>
+          <td>{{ item.medicine?.name }}</td>
 
           <td>
             <span class="stock"
               [class.low]="item.stock < 20">
-              {{item.stock}}
+              {{ item.stock }}
             </span>
+          </td>
+
+          <!-- ✅ ADDED -->
+          <td>
+            {{ item.expiryDate ? (item.expiryDate | date:'yyyy-MM-dd') : 'N/A' }}
           </td>
 
           <td>

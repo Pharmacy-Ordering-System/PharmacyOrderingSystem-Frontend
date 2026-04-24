@@ -27,7 +27,8 @@ export class InventoryComponent implements OnInit {
         id: item.medicineId,
         medicine: item.medicine,
         stock: item.stock,
-        newStock: item.stock
+        newStock: item.stock,
+        expiryDate: item.expiryDate // ✅ ADDED
       }));
     },
     error: (err) => {
