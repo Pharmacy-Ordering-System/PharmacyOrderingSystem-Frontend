@@ -6,22 +6,22 @@
     </div>
   </div>
 
-  <!-- Loading State -->
+  <!-- Loading -->
   <div *ngIf="loading" class="loading-box">
     Loading users...
   </div>
 
-  <!-- Error State -->
+  <!-- Error -->
   <div *ngIf="error" class="error-box">
     {{ error }}
   </div>
 
-  <!-- Empty State -->
+  <!-- Empty -->
   <div *ngIf="!loading && !error && users.length === 0" class="empty-box">
     No users found.
   </div>
 
-  <!-- Users Table -->
+  <!-- TABLE -->
   <div class="table-card" *ngIf="!loading && !error && users.length > 0">
     <table class="custom-table">
       <thead>
@@ -34,23 +34,82 @@
           <th>Actions</th>
         </tr>
       </thead>
+
       <tbody>
-        <tr *ngFor="let user of users">
-          <td>{{ user.userId }}</td>
-          <td><strong>{{ user.name }}</strong></td>
-          <td>{{ user.email }}</td>
-          <td>
-            <span class="role-badge" [class.admin]="user.role === 'Admin'">
-              {{ user.role }}
-            </span>
-          </td>
-          <td>{{ user.createdAt | date:'mediumDate' }}</td>
-          <td>
-            <button class="delete-btn" (click)="deleteUser(user.userId)">
-              Delete
-            </button>
-          </td>
-        </tr>
+
+        <ng-container *ngFor="let user of users">
+
+          <!-- USER ROW -->
+          <tr (click)="viewUserDetails(user.userId)" style="cursor:pointer">
+            <td>{{ user.userId }}</td>
+            <td><strong>{{ user.name }}</strong></td>
+            <td>{{ user.email }}</td>
+
+            <td>
+              <span class="role-badge" [class.admin]="user.role === 'Admin'">
+                {{ user.role }}
+              </span>
+            </td>
+
+            <td>{{ user.createdAt | date:'mediumDate' }}</td>
+
+            <td>
+              <!-- 🔥 STOP CLICK PROPAGATION -->
+              <button class="delete-btn"
+                      (click)="deleteUser(user.userId); $event.stopPropagation()">
+                Delete
+              </button>
+            </td>
+          </tr>
+
+          <!-- 🔥 EXPANDABLE DETAILS -->
+          <tr *ngIf="selectedUserId === user.userId">
+            <td colspan="6">
+
+              <div class="details-card">
+
+                <!-- ORDERS -->
+                <h4>Orders</h4>
+
+                <div *ngIf="selectedUserDetails?.orders?.length > 0; else noOrders">
+                  <div *ngFor="let order of selectedUserDetails.orders" class="order-box">
+                    <p><strong>Order ID:</strong> {{ order.id }}</p>
+                    <p><strong>Status:</strong> {{ order.status }}</p>
+                    <p><strong>Total:</strong> ₹{{ order.totalAmount }}</p>
+                  </div>
+                </div>
+
+                <ng-template #noOrders>
+                  <p>No orders found.</p>
+                </ng-template>
+
+                <!-- PRESCRIPTIONS -->
+                <h4>Prescriptions</h4>
+
+                <div *ngIf="selectedUserDetails?.prescriptions?.length > 0; else noPres">
+                  <div *ngFor="let p of selectedUserDetails.prescriptions">
+                    <a 
+                      [href]="'http://localhost:7130' + p.filePath"
+                      target="_blank"
+                      class="prescription-link"
+                      (click)="$event.stopPropagation()"
+                    >
+                      View Prescription
+                    </a>
+                  </div>
+                </div>
+
+                <ng-template #noPres>
+                  <p>No prescriptions uploaded.</p>
+                </ng-template>
+
+              </div>
+
+            </td>
+          </tr>
+
+        </ng-container>
+
       </tbody>
     </table>
   </div>

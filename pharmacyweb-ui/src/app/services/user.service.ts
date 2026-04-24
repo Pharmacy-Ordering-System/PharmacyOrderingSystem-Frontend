@@ -35,4 +35,7 @@ export class UserService {
   deleteUser(id: number) {
     return this.http.delete(`${this.apiUrl}/${id}`);
   }
+  getUserDetails(id: number) {
+  return this.http.get(`${this.apiUrl}/${id}/details`);
+}
 }

@@ -10,7 +10,8 @@ export class UsersComponent implements OnInit {
   users: any[] = [];
   loading = true;
   error = '';
-
+selectedUserDetails: any = null;
+selectedUserId: number | null = null;
   constructor(private userService: UserService) {}
 
   ngOnInit(): void {
@@ -46,4 +47,24 @@ export class UsersComponent implements OnInit {
       });
     }
   }
+
+  viewUserDetails(userId: number) {
+  if (this.selectedUserId === userId) {
+    // toggle close
+    this.selectedUserId = null;
+    this.selectedUserDetails = null;
+    return;
+  }
+
+  this.selectedUserId = userId;
+
+  this.userService.getUserDetails(userId).subscribe({
+    next: (res: any) => {
+      this.selectedUserDetails = res;
+    },
+    error: (err) => {
+      console.error('Error loading user details:', err);
+    }
+  });
+}
 }
