@@ -1,0 +1,30 @@
+<div class="admin-page">
+  <div class="page-header">
+    <h2>Health Packages</h2>
+    <button class="primary-btn" (click)="openAdd()">Add Package</button>
+  </div>
+
+  <div *ngIf="showForm" class="form-card">
+    <input [(ngModel)]="formData.name" placeholder="Name" class="form-control">
+    <textarea [(ngModel)]="formData.description" placeholder="Description" class="form-control"></textarea>
+    <input [(ngModel)]="formData.price" type="number" placeholder="Price" class="form-control">
+
+    <div class="form-actions">
+      <button class="primary-btn" (click)="save()">Save</button>
+      <button class="secondary-btn" (click)="showForm=false">Cancel</button>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card" *ngFor="let pkg of packages">
+      <h4>{{pkg.name}}</h4>
+      <p>{{pkg.description}}</p>
+      <h5>₹{{pkg.price}}</h5>
+
+      <div class="actions">
+        <button class="edit-btn" (click)="openEdit(pkg)">Edit</button>
+        <button class="delete-btn" (click)="delete(pkg.id)">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>

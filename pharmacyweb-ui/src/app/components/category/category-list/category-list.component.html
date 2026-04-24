@@ -1,0 +1,26 @@
+<div class="category-container">
+
+  <h3 class="title">Categories</h3>
+
+  <div *ngIf="loading" class="loading">
+    Loading categories...
+  </div>
+
+  <div class="category-scroll" *ngIf="!loading">
+
+    <div
+      class="category-card"
+      *ngFor="let cat of categories"
+      [class.active]="selectedCategoryId === cat.id"
+      (click)="selectCategory(cat.id)">
+
+      <div class="icon">
+<img src="https://cdn-icons-png.flaticon.com/512/2921/2921822.png" />      </div>
+
+      <p>{{cat.name}}</p>
+
+    </div>
+
+  </div>
+
+</div>

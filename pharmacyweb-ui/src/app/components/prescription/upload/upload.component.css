@@ -1,0 +1,65 @@
+.upload-page {
+  background: #f5f7fb;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* CARD */
+.upload-card {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  width: 400px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+}
+
+.upload-card h2 {
+  margin-bottom: 10px;
+}
+
+.upload-card p {
+  color: #6b7280;
+}
+
+/* BOX */
+.upload-box {
+  margin: 20px 0;
+  padding: 20px;
+  border: 2px dashed #d1d5db;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.upload-box input {
+  width: 100%;
+}
+
+.file-name {
+  color: green;
+  margin-top: 10px;
+}
+
+/* BUTTON */
+.upload-btn {
+  width: 100%;
+  padding: 12px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  margin-top: 15px;
+}
+
+/* STATES */
+.error {
+  color: red;
+  margin-top: 10px;
+}
+
+.success {
+  color: green;
+  margin-top: 10px;
+}

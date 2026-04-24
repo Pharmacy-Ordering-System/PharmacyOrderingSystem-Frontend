@@ -1,0 +1,57 @@
+<div class="admin-page">
+  <div class="page-header">
+    <div>
+      <h2>User Management</h2>
+      <p>View and manage all registered users</p>
+    </div>
+  </div>
+
+  <!-- Loading State -->
+  <div *ngIf="loading" class="loading-box">
+    Loading users...
+  </div>
+
+  <!-- Error State -->
+  <div *ngIf="error" class="error-box">
+    {{ error }}
+  </div>
+
+  <!-- Empty State -->
+  <div *ngIf="!loading && !error && users.length === 0" class="empty-box">
+    No users found.
+  </div>
+
+  <!-- Users Table -->
+  <div class="table-card" *ngIf="!loading && !error && users.length > 0">
+    <table class="custom-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Role</th>
+          <th>Joined</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.userId }}</td>
+          <td><strong>{{ user.name }}</strong></td>
+          <td>{{ user.email }}</td>
+          <td>
+            <span class="role-badge" [class.admin]="user.role === 'Admin'">
+              {{ user.role }}
+            </span>
+          </td>
+          <td>{{ user.createdAt | date:'mediumDate' }}</td>
+          <td>
+            <button class="delete-btn" (click)="deleteUser(user.userId)">
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

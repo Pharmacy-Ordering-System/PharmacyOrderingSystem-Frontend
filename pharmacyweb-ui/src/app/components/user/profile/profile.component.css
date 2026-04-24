@@ -1,0 +1,75 @@
+.profile-container {
+  padding: 40px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.profile-card {
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.profile-card h2 {
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #374151;
+}
+
+.form-control {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+  font-size: 16px;
+}
+
+.form-control:disabled {
+  background: #f3f4f6;
+  color: #6b7280;
+}
+
+.primary-btn {
+  width: 100%;
+  padding: 12px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.success-msg {
+  margin-top: 15px;
+  padding: 10px;
+  background: #d1fae5;
+  color: #065f46;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.error-msg {
+  margin-top: 15px;
+  padding: 10px;
+  background: #fee2e2;
+  color: #991b1b;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.loading {
+  text-align: center;
+  padding: 40px;
+  color: #6b7280;
+}

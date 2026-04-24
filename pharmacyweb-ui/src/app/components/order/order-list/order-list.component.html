@@ -1,0 +1,55 @@
+<div class="order-page">
+
+  <div class="header">
+    <h2>My Orders</h2>
+    <p>Track your orders and status</p>
+  </div>
+
+  <!-- LOADING -->
+  <div *ngIf="loading">Loading...</div>
+
+  <!-- EMPTY -->
+  <div *ngIf="!loading && orders.length === 0">
+    No orders placed yet
+  </div>
+
+  <!-- ORDERS -->
+  <div *ngFor="let order of orders"
+     class="order-card"
+     [routerLink]="['/orders', order.id]"
+     style="cursor:pointer;">
+
+    <div class="top">
+      <h4>Order #{{ order.id }}</h4>
+
+      <span class="badge" [ngClass]="getStatusClass(order.status)">
+{{ getStatusText(order.status) }}
+      </span>
+    </div>
+
+    <!-- ITEMS -->
+    <div *ngIf="order.items?.length">
+
+      <div *ngFor="let item of order.items" class="item">
+
+        <div class="left">
+          <strong>{{ item.medicine?.name || ('Medicine ID: ' + item.medicineId) }}</strong>
+          <small>₹{{ item.medicine?.price || 0 }}</small>
+        </div>
+
+        <div class="right">
+          Qty: {{ item.quantity }} <br>
+          <b>₹{{ item.quantity * (item.medicine?.price || 0) }}</b>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="total">
+      Total: ₹{{ getOrderTotal(order) }}
+    </div>
+
+  </div>
+
+</div>

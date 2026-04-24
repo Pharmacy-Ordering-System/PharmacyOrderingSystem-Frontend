@@ -1,0 +1,66 @@
+.detail-page {
+  padding: 40px;
+  background: #f5f7fb;
+}
+
+.detail-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  gap: 30px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+/* LEFT */
+.left img {
+  width: 100%;
+  border-radius: 16px;
+}
+
+/* RIGHT */
+.right h2 {
+  font-size: 26px;
+}
+
+.dosage {
+  color: #6b7280;
+  margin: 10px 0;
+}
+
+.price {
+  margin: 15px 0;
+}
+
+/* UPLOAD */
+.upload-box {
+  margin: 20px 0;
+  padding: 15px;
+  border: 1px dashed #d1d5db;
+  border-radius: 12px;
+}
+
+.file-name {
+  color: green;
+}
+
+.error {
+  color: red;
+}
+
+/* BUTTON */
+.cart-btn {
+  background: #2563eb;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 12px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .detail-card {
+    grid-template-columns: 1fr;
+  }
+}

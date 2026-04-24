@@ -1,0 +1,54 @@
+.order-card {
+  background: #fff;
+  padding: 15px;
+  margin: 15px 0;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.left small {
+  display: block;
+  color: gray;
+}
+
+.total {
+  margin-top: 10px;
+  text-align: right;
+  font-weight: bold;
+}
+
+/* 🔥 STATUS BADGES */
+.badge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  color: white;
+  font-size: 12px;
+}
+
+.pending {
+  background-color: orange;
+}
+
+.approved {
+  background-color: green;
+}
+
+.completed {
+  background-color: blue;
+}
+
+.rejected {
+  background-color: red;
+}

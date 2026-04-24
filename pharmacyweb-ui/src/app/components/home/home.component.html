@@ -1,0 +1,52 @@
+<div class="home-container">
+
+  <!-- HERO SECTION -->
+  <div class="hero">
+
+    <div class="hero-left">
+      <h1>Your Health, Our Priority</h1>
+      <p>Order medicines easily with prescription support</p>
+
+      <button class="browse-btn" routerLink="/medicines">
+        Browse Medicines
+      </button>
+    </div>
+
+    <div class="hero-right">
+   <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5" />
+    </div>
+
+  </div>
+
+  <!-- CATEGORIES -->
+  <h3 class="section-title">Categories</h3>
+
+  <div class="categories">
+
+    <div class="category-card" *ngFor="let c of categories">
+      <div class="icon">💊</div>
+      <p>{{c.name}}</p>
+    </div>
+
+  </div>
+
+  <!-- FEATURED MEDICINES -->
+  <h3 class="section-title">Featured Medicines</h3>
+
+  <div class="medicines">
+
+    <div class="medicine-card" *ngFor="let m of medicines">
+
+<img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88" />
+      <h4>{{m.name}}</h4>
+      <p>{{m.dosage}}</p>
+
+      <button (click)="viewDetails(m.id)">
+        View Details
+      </button>
+
+    </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,62 @@
+<div class="admin-page">
+  <div class="page-header">
+    <div>
+      <h2>Manage Medicines</h2>
+      <p>Add, edit, and delete medicines</p>
+    </div>
+    <button class="primary-btn" (click)="openAddForm()">Add Medicine</button>
+  </div>
+
+  <div class="form-card" *ngIf="showForm">
+    <div class="form-grid">
+      <input type="text" [(ngModel)]="formData.name" placeholder="Medicine name" class="form-control">
+      <input type="text" [(ngModel)]="formData.dosage" placeholder="Dosage" class="form-control">
+      <input type="number" [(ngModel)]="formData.price" placeholder="Price" class="form-control">
+      <select [(ngModel)]="formData.categoryId" class="form-control">
+       <select [(ngModel)]="formData.categoryId" class="form-control">
+  <select [(ngModel)]="formData.categoryId" class="form-control">
+  <option [ngValue]="0">Select category</option>
+  <option *ngFor="let category of categories" [ngValue]="category.id">
+    {{ category.name }}
+  </option>
+</select>
+</select>
+        <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
+      </select>
+      <input *ngIf="!isEdit" type="number" [(ngModel)]="formData.stock" placeholder="Stock" class="form-control">
+    </div>
+
+    <div class="form-actions">
+      <button class="primary-btn" (click)="saveMedicine()">{{ isEdit ? 'Update' : 'Save' }}</button>
+      <button class="secondary-btn" (click)="cancelForm()">Cancel</button>
+    </div>
+  </div>
+
+  <div class="table-card" *ngIf="!loading">
+    <table class="custom-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Dosage</th>
+          <th>Price</th>
+          <th>Category</th>
+          <th>Stock</th>
+          <th class="text-end">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let medicine of medicines">
+          <td>{{ medicine.name }}</td>
+          <td>{{ medicine.dosage }}</td>
+          <td>₹{{ medicine.price }}</td>
+          <td>{{ medicine.category?.name || medicine.categoryId }}</td>
+          <td>{{ medicine.stock }}</td>
+          <td class="text-end">
+            <button class="edit-btn" (click)="openEditForm(medicine)">Edit</button>
+            <button class="delete-btn" (click)="deleteMedicine(medicine.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,57 @@
+<nav class="navbar">
+
+  <!-- LEFT -->
+  <div class="left">
+    <h2 class="logo" routerLink="/home">PharmacyCare</h2>
+  </div>
+
+  <!-- CENTER -->
+  <div class="center">
+
+    <!-- USER LINKS -->
+    <ng-container *ngIf="role !== 'Admin'">
+
+      <a routerLink="/home">Home</a>
+      <a routerLink="/medicines">Medicines</a>
+      <a routerLink="/orders">Orders</a>
+
+      <a routerLink="/profile">Profile</a>
+
+      
+
+    </ng-container>
+
+    <!-- ADMIN LINKS -->
+    <ng-container *ngIf="role === 'Admin'">
+
+      <a routerLink="/admin">Dashboard</a>
+      <a routerLink="/admin/medicines">Medicines</a>
+      <a routerLink="/admin/orders">Orders</a>
+      <a routerLink="/admin/inventory">Inventory</a>
+
+      <a routerLink="/admin/loyalty">Loyalty</a>
+      <a routerLink="/admin/health-packages">Packages</a>
+      <a routerLink="/admin/users">Users</a>
+
+
+    </ng-container>
+
+  </div>
+
+  <!-- RIGHT -->
+  <div class="right">
+
+    <!-- CART -->
+    <div class="cart" *ngIf="role !== 'Admin'" routerLink="/cart">
+      🛒
+      <span class="badge">{{getCartCount()}}</span>
+    </div>
+
+    <!-- LOGOUT -->
+    <button class="logout-btn" (click)="logout()">
+      Logout
+    </button>
+
+  </div>
+
+</nav>

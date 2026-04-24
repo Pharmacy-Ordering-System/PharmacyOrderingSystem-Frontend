@@ -1,0 +1,105 @@
+.container {
+  padding: 20px;
+}
+
+/* SEARCH */
+.search-bar {
+  width: 300px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 15px;
+}
+
+/* CATEGORY */
+.categories {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.cat-btn {
+  padding: 6px 14px;
+  border: none;
+  border-radius: 20px;
+  background: #e5e7eb;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.cat-btn:hover {
+  background: #2563eb;
+  color: white;
+}
+
+/* ACTIVE BUTTON */
+.cat-btn.active {
+  background: #2563eb;
+  color: white;
+}
+
+/* MEDICINES GRID */
+.medicines {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* CARD */
+.medicine-card {
+  background: white;
+  padding: 15px;
+  border-radius: 12px;
+  width: 200px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  text-align: center;
+  transition: 0.3s;
+}
+
+.medicine-card:hover {
+  transform: translateY(-5px);
+}
+
+/* IMAGE */
+.medicine-card img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+/* PRICE */
+.price {
+  color: #2563eb;
+  font-weight: bold;
+}
+
+/* STOCK */
+.stock {
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+.stock.low {
+  color: red;
+  font-weight: bold;
+}
+
+/* BUTTON */
+.medicine-card button {
+  margin-top: 10px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* EMPTY STATE */
+.no-data {
+  margin-top: 20px;
+  color: gray;
+  text-align: center;
+}

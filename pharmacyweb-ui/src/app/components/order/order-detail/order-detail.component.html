@@ -1,0 +1,45 @@
+<div class="order-page">
+
+  <h2>Order Details</h2>
+
+  <div *ngIf="loading">Loading...</div>
+
+  <div *ngIf="!loading && !order">
+    Order not found
+  </div>
+
+  <div *ngIf="!loading && order" class="order-card">
+
+    <div class="top">
+      <h4>Order #{{ order.id }}</h4>
+
+      <span class="badge" [ngClass]="getStatusClass(order.status)">
+        {{ order.status || 'Placed' }}
+      </span>
+    </div>
+
+    <div *ngIf="order.items?.length">
+
+      <div *ngFor="let item of order.items" class="item">
+
+        <div class="left">
+          <strong>{{ item.medicine?.name }}</strong>
+          <small>₹{{ item.medicine?.price }}</small>
+        </div>
+
+        <div class="right">
+          Qty: {{ item.quantity }} <br>
+          <b>₹{{ item.quantity * (item.medicine?.price || 0) }}</b>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="total">
+      Total: ₹{{ getOrderTotal(order) }}
+    </div>
+
+  </div>
+
+</div>

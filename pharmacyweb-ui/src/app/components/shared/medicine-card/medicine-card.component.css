@@ -1,0 +1,70 @@
+.card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: 0.3s;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* IMAGE */
+.img-box {
+  height: 160px;
+}
+
+.img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* CONTENT */
+.content {
+  padding: 16px;
+}
+
+.content h4 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.dosage {
+  color: #6b7280;
+  margin: 6px 0 12px;
+}
+
+/* BOTTOM */
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price {
+  font-weight: 600;
+}
+
+/* BUTTONS */
+.actions {
+  display: flex;
+  gap: 6px;
+}
+
+.view-btn {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 8px;
+}
+
+.cart-btn {
+  background: #10b981;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 8px;
+}

@@ -1,0 +1,36 @@
+<div class="auth-container">
+
+  <div class="auth-card">
+
+    <h2>Create your account</h2>
+    <p>Join MediCare in seconds</p>
+
+    <!-- SUCCESS MESSAGE -->
+    <p *ngIf="success" style="color: green;">
+      {{ success }}
+    </p>
+
+    <!-- ERROR MESSAGE -->
+    <p *ngIf="errorMessage" style="color: red;">
+      {{ errorMessage }}
+    </p>
+
+    <input [(ngModel)]="formData.name" placeholder="Full name" />
+
+    <input [(ngModel)]="formData.email" placeholder="Email" />
+
+    <input [(ngModel)]="formData.password" type="password" placeholder="Password" />
+
+    <!--  DISABLE BUTTON WHILE LOADING -->
+    <button (click)="register()" [disabled]="loading">
+      {{ loading ? 'Creating...' : 'Create account' }}
+    </button>
+
+    <p class="switch">
+      Already have an account?
+      <a routerLink="/login">Sign in</a>
+    </p>
+
+  </div>
+
+</div>

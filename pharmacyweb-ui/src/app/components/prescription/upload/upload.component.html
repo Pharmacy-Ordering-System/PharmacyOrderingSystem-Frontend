@@ -1,0 +1,37 @@
+<div class="upload-page">
+
+  <div class="upload-card">
+
+    <h2>Upload Prescription</h2>
+    <p>Please upload your prescription file (.txt format)</p>
+
+    <!-- UPLOAD BOX -->
+    <div class="upload-box">
+
+      <input type="file" (change)="onFileChange($event)">
+
+      <p *ngIf="!selectedFile">Click to upload or drag file</p>
+
+      <p class="file-name" *ngIf="selectedFile">
+        {{selectedFile.name}}
+      </p>
+
+    </div>
+
+    <!-- ERROR -->
+    <p class="error" *ngIf="error">{{error}}</p>
+
+    <!-- SUCCESS -->
+    <p class="success" *ngIf="message">{{message}}</p>
+
+    <!-- BUTTON -->
+    <button
+      class="upload-btn"
+      (click)="upload()"
+      [disabled]="loading">
+      {{ loading ? 'Uploading...' : 'Upload Prescription' }}
+    </button>
+
+  </div>
+
+</div>

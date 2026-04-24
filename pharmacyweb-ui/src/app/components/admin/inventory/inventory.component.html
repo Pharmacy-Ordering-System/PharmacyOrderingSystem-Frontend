@@ -1,0 +1,49 @@
+<div class="container">
+
+  <h2>Inventory Management</h2>
+  <p class="subtitle">Update stock levels and track low stock items</p>
+
+  <div class="card">
+
+    <table>
+      <thead>
+        <tr>
+          <th>Medicine</th>
+          <th>Current Stock</th>
+          <th>New Stock</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let item of inventory">
+
+          <td>{{item.medicine?.name}}</td>
+
+          <td>
+            <span class="stock"
+              [class.low]="item.stock < 20">
+              {{item.stock}}
+            </span>
+          </td>
+
+          <td>
+            <input type="number"
+              [(ngModel)]="item.newStock" />
+          </td>
+
+          <td>
+            <button class="update-btn"
+              (click)="updateStock(item)">
+              Update
+            </button>
+          </td>
+
+        </tr>
+      </tbody>
+
+    </table>
+
+  </div>
+
+</div>

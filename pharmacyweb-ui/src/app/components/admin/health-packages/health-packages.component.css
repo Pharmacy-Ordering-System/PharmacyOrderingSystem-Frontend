@@ -1,0 +1,20 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.card {
+  background: white;
+  padding: 18px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.card h4 {
+  margin-bottom: 8px;
+}
+
+.actions {
+  margin-top: 12px;
+}

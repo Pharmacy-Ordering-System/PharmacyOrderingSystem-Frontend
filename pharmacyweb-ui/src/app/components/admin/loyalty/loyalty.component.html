@@ -1,0 +1,44 @@
+<!-- <div class="admin-page">
+  <h2>Loyalty Points</h2>
+
+  <div class="form-card">
+    <input type="number" [(ngModel)]="userId" placeholder="User ID" class="form-control">
+    <input type="number" [(ngModel)]="points" placeholder="Points" class="form-control">
+
+    <div class="form-actions">
+      <button class="primary-btn" (click)="addPoints()">Add Points</button>
+      <button class="secondary-btn" (click)="getPoints()">View Points</button>
+    </div>
+  </div>
+
+  <div *ngIf="result" class="result-card">
+    <h4>User Points</h4>
+    <p>{{result.points}}</p>
+  </div>
+</div> -->
+
+<div class="admin-page">
+  <div class="page-header">
+    <div>
+      <h2>Loyalty Points</h2>
+      <p>Manage customer loyalty points</p>
+    </div>
+  </div>
+
+  <div class="form-card">
+    <div class="form-grid">
+      <input type="number" [(ngModel)]="userId" placeholder="User ID" class="form-control">
+      <input type="number" [(ngModel)]="points" placeholder="Points to add" class="form-control">
+    </div>
+
+    <div class="form-actions">
+      <button class="secondary-btn" (click)="getPoints()">View Points</button>
+      <button class="primary-btn" (click)="addPoints()">Add Points</button>
+    </div>
+  </div>
+
+  <div *ngIf="result" class="result-card">
+    <h4>User Points</h4>
+    <h3>{{ result.points }}</h3>
+  </div>
+</div>

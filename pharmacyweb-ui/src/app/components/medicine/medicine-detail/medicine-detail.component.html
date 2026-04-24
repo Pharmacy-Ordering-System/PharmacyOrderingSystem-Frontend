@@ -1,0 +1,40 @@
+<div class="detail-page" *ngIf="medicine">
+
+  <div class="detail-card">
+
+    <!-- LEFT -->
+    <div class="left">
+    <img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88" />
+    
+    </div>
+
+    <!-- RIGHT -->
+    <div class="right">
+
+      <h2>{{medicine.name}}</h2>
+      <p class="dosage">{{medicine.dosage}}</p>
+
+      <h3 class="price">₹{{medicine.price}}</h3>
+
+      <!-- PRESCRIPTION -->
+      <div class="upload-box">
+        <p>Upload Prescription (.txt)</p>
+
+        <input type="file" (change)="onFileChange($event)">
+
+        <p class="file-name" *ngIf="selectedFile">
+          {{selectedFile.name}}
+        </p>
+
+        <p class="error" *ngIf="error">{{error}}</p>
+      </div>
+
+      <button class="cart-btn" (click)="addToCart()">
+        Add to Cart
+      </button>
+
+    </div>
+
+  </div>
+
+</div>

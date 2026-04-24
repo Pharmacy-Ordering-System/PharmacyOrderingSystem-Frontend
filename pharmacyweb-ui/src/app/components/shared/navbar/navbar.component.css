@@ -1,0 +1,74 @@
+.navbar {
+  height: 70px;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+/* LEFT */
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* CENTER */
+.center {
+  display: flex;
+  gap: 25px;
+}
+
+.center a {
+  text-decoration: none;
+  color: #374151;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.center a:hover {
+  color: #2563eb;
+}
+
+/* RIGHT */
+.right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* CART */
+.cart {
+  position: relative;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.badge {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  background: #ef4444;
+  color: white;
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 50%;
+}
+
+/* LOGOUT */
+.logout-btn {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 10px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .center {
+    display: none;
+  }
+}

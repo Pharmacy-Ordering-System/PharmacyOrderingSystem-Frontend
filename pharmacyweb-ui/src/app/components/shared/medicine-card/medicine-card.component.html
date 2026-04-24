@@ -1,0 +1,40 @@
+<div class="card">
+
+  <!-- IMAGE -->
+  <div class="img-box">
+    <img
+      [src]="medicine.imageUrl || 'https://images.unsplash.com/photo-1587854692152-cbe660dbde88'"
+      alt="medicine"
+    >
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+
+    <h4>{{ medicine.name }}</h4>
+
+    <p class="dosage">
+      {{ medicine.dosage || 'Standard dosage' }}
+    </p>
+
+    <div class="bottom">
+
+      <span class="price">
+        ₹{{ medicine.price }}
+      </span>
+
+      <div class="actions">
+        <button class="view-btn" (click)="viewDetails()">
+          View
+        </button>
+
+        <button class="cart-btn" (click)="addToCart()">
+          Add
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

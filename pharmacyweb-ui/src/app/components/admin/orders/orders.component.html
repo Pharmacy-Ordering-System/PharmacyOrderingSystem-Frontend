@@ -1,0 +1,69 @@
+<div class="admin-page">
+  <div class="page-header">
+    <div>
+      <h2>Manage Orders</h2>
+      <p>Review and update order statuses</p>
+    </div>
+  </div>
+
+  <div *ngIf="loading" class="loading-box">
+    Loading orders...
+  </div>
+
+  <div *ngIf="!loading && orders.length === 0" class="empty-box">
+    No orders found.
+  </div>
+
+  <div class="orders-grid" *ngIf="!loading && orders.length > 0">
+    <div class="order-card" *ngFor="let order of orders">
+      <div class="order-top">
+        <div>
+          <h4>Order #{{ order.id }}</h4>
+          <p>User ID: {{ order.userId }}</p>
+        </div>
+
+        <span class="status-badge" [ngClass]="getStatusClass(order.status)">
+          {{ getStatusLabel(order.status) }}
+        </span>
+      </div>
+
+      <div class="order-info">
+        <div class="info-box">
+          <span>Items</span>
+          <strong>{{ getItemCount(order) }}</strong>
+        </div>
+
+        <div class="info-box">
+          <span>Total Qty</span>
+          <strong>{{ getTotalQuantity(order) }}</strong>
+        </div>
+      </div>
+
+      <div class="items-section" *ngIf="order.items?.length">
+        <h5>Order Items</h5>
+        <div class="item-row" *ngFor="let item of order.items">
+          <span>Medicine ID: {{ item.medicineId }}</span>
+          <span>Qty: {{ item.quantity }}</span>
+        </div>
+      </div>
+
+      <div class="action-section">
+        <label>Update Status</label>
+        <div class="action-row">
+          <select #statusSelect class="status-select">
+            <option *ngFor="let option of statusOptions" [value]="option.value">
+              {{ option.label }}
+            </option>
+          </select>
+
+          <button
+            class="primary-btn"
+            [disabled]="updatingOrderId === order.id"
+            (click)="updateStatus(order.id, +statusSelect.value)">
+            {{ updatingOrderId === order.id ? 'Updating...' : 'Update' }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

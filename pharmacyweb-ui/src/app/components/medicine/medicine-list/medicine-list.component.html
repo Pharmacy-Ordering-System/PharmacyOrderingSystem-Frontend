@@ -1,0 +1,65 @@
+<div class="container">
+
+  <h2>All Medicines</h2>
+
+  <!-- 🔍 SEARCH -->
+  <input
+    type="text"
+    placeholder="Search medicines..."
+    [(ngModel)]="searchText"
+    (input)="filterMedicines()"
+    class="search-bar"
+  />
+
+  <!-- 🧠 CATEGORY FILTER -->
+  <div class="categories">
+
+    <!-- All Button -->
+    <button 
+      class="cat-btn"
+      [class.active]="selectedCategoryId === 0"
+      (click)="clearFilter()">
+      All
+    </button>
+
+    <!-- Dynamic Categories -->
+    <button 
+      class="cat-btn"
+      *ngFor="let c of categories"
+      [class.active]="selectedCategoryId === c.id"
+      (click)="selectCategory(c.id)">
+      {{ c.name }}
+    </button>
+
+  </div>
+
+  <!-- 💊 MEDICINES -->
+  <div class="medicines">
+
+    <div class="medicine-card" *ngFor="let m of medicines">
+
+      <img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88" />
+
+      <h4>{{ m.name }}</h4>
+      <p>{{ m.dosage }}</p>
+      <p class="price">₹ {{ m.price }}</p>
+
+      <!-- 🔥 STOCK DISPLAY -->
+      <p class="stock" [class.low]="m.stock <= 5">
+        {{ m.stock > 0 ? (m.stock + ' in stock') : 'Out of stock' }}
+      </p>
+
+      <button [routerLink]="['/medicine', m.id]">
+        View Details
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- ❌ EMPTY STATE -->
+  <p class="no-data" *ngIf="medicines.length === 0">
+    No medicines found 😕
+  </p>
+
+</div>

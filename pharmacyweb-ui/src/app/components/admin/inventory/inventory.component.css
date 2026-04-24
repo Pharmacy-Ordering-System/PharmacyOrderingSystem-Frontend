@@ -1,0 +1,67 @@
+.container {
+  padding: 30px;
+}
+
+h2 {
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  color: #6b7280;
+  margin-bottom: 20px;
+}
+
+/* CARD */
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+/* TABLE */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  text-align: left;
+  padding: 10px;
+  color: #6b7280;
+}
+
+td {
+  padding: 10px;
+  border-top: 1px solid #eee;
+}
+
+/* STOCK */
+.stock {
+  background: #d1fae5;
+  color: #065f46;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+.stock.low {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+/* INPUT */
+input {
+  padding: 6px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  width: 80px;
+}
+
+/* BUTTON */
+.update-btn {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+}

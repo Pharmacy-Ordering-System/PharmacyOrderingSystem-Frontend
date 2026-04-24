@@ -1,0 +1,32 @@
+<div class="admin-page">
+  <div class="page-header">
+    <div>
+      <h2>Admin Dashboard</h2>
+      <p>Overview of medicines, orders, and stock</p>
+    </div>
+  </div>
+
+  <div *ngIf="loading" class="loading-box">Loading dashboard...</div>
+
+  <div class="stats-grid" *ngIf="!loading">
+    <div class="stat-card">
+      <h4>Total Medicines</h4>
+      <h3>{{ totalMedicines }}</h3>
+    </div>
+
+    <div class="stat-card">
+      <h4>Total Orders</h4>
+      <h3>{{ totalOrders }}</h3>
+    </div>
+
+    <div class="stat-card warning">
+      <h4>Pending Orders</h4>
+      <h3>{{ pendingOrders }}</h3>
+    </div>
+
+    <div class="stat-card danger">
+      <h4>Low Stock Items</h4>
+      <h3>{{ lowStockCount }}</h3>
+    </div>
+  </div>
+</div>
